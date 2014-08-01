@@ -43,7 +43,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = copyVanillaTweaks.MOD_ID, version = "@VERSION@",
-useMetadata = false, dependencies = "required-after:copycore;betterstorage")
+     useMetadata = false, dependencies = "required-after:copycore;required-after:betterstorage")
 public class copyVanillaTweaks {
 	
 	public static final String MOD_ID = "copyVanillaTweaks";
