@@ -2,6 +2,7 @@ package net.mcft.copy.tweaks;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.ListIterator;
 import java.util.Set;
 
@@ -35,6 +36,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -100,8 +102,14 @@ public class copyVanillaTweaks {
 			else if (replaceCobbleWithStoneIn.contains(output.getItem())) {
 				Object[] input = ((ShapedOreRecipe)recipe).getInput();
 				for (int i = 0; i < input.length; i++)
-					if (input[i] == "cobblestone")
-						input[i] = new ItemStack(Blocks.stone);
+					if (input[i] instanceof List) {
+					List<ItemStack> stacks = (List<ItemStack>)input[i];
+					for (ItemStack stack : stacks)
+						if (stack.getItem() == Item.getItemFromBlock(Blocks.cobblestone)) {
+							input[i] = OreDictionary.getOres("stone");
+							break;
+						}
+				}
 			}
 		}
 		
