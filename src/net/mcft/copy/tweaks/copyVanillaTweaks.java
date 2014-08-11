@@ -361,6 +361,8 @@ public class copyVanillaTweaks {
 	
 	@SubscribeEvent
 	public void onLivingDrops(LivingDropsEvent event) {
+		// Don't drop any extras if the entity is a child.
+		if (event.entityLiving.isChild()) return;
 		// Chickens drop 3 extra feathers.
 		if (event.entity instanceof EntityChicken)
 			event.drops.add(makeItemToDrop(event.entity, Items.feather, 3));
@@ -415,7 +417,7 @@ public class copyVanillaTweaks {
 	public void onLivingUpdate(LivingUpdateEvent event) {
 		// Adult chickens have a 25% chance drop a feather every 8 minutes.
 		if (!event.entity.worldObj.isRemote && (event.entity instanceof EntityChicken) &&
-		    ((event.entity.ticksExisted % (8 * 60 * 20)) == 0) &&
+		    !event.entityLiving.isChild() && ((event.entity.ticksExisted % (8 * 60 * 20)) == 0) &&
 		    RandomUtils.getBoolean(0.5))
 			WorldUtils.dropStackFromEntity(event.entity, new ItemStack(Items.feather), 1.5F);
 	}
