@@ -361,9 +361,9 @@ public class copyVanillaTweaks {
 	
 	@SubscribeEvent
 	public void onLivingDrops(LivingDropsEvent event) {
-		// Chickens drop 3-4 extra feathers.
+		// Chickens drop 3 extra feathers.
 		if (event.entity instanceof EntityChicken)
-			event.drops.add(makeItemToDrop(event.entity, Items.feather, RandomUtils.getInt(3, 5)));
+			event.drops.add(makeItemToDrop(event.entity, Items.feather, 3));
 		// Pigs drop 2 extra porkchops.
 		else if (event.entity instanceof EntityPig)
 			event.drops.add(makeItemToDrop(event.entity, Items.porkchop, 2));
@@ -413,9 +413,9 @@ public class copyVanillaTweaks {
 	
 	@SubscribeEvent
 	public void onLivingUpdate(LivingUpdateEvent event) {
-		// Chickens have a 50% chance drop a feather every 4 minutes.
+		// Adult chickens have a 25% chance drop a feather every 8 minutes.
 		if (!event.entity.worldObj.isRemote && (event.entity instanceof EntityChicken) &&
-		    ((event.entity.ticksExisted % (4 * 60 * 20)) == 0) &&
+		    ((event.entity.ticksExisted % (8 * 60 * 20)) == 0) &&
 		    RandomUtils.getBoolean(0.5))
 			WorldUtils.dropStackFromEntity(event.entity, new ItemStack(Items.feather), 1.5F);
 	}
