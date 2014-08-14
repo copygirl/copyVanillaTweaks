@@ -347,11 +347,6 @@ public class copyVanillaTweaks {
 				"ooo", 'O', "blockIron",
 				       'o', "ingotIron");
 		
-		addShapedStationRecipe(new ItemStack(Items.leather, 4), 1,
-				"ooo",
-				"ooo",
-				"ooo", 'o', Items.rotten_flesh);
-		
 		// ForgeMultipart saws
 		
 		if (Loader.isModLoaded("ForgeMultipart")) {
