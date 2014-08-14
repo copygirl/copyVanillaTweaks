@@ -1,9 +1,11 @@
 package net.mcft.copy.tweaks;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
 import java.util.Set;
 
 import net.mcft.copy.betterstorage.api.crafting.BetterStorageCrafting;
@@ -12,6 +14,7 @@ import net.mcft.copy.core.util.RandomUtils;
 import net.mcft.copy.core.util.WorldUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.monster.EntityCreeper;
@@ -23,6 +26,7 @@ import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.passive.EntityPig;
+import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -420,14 +424,33 @@ public class copyVanillaTweaks {
 		return makeItemToDrop(entity, new ItemStack(item, amount));
 	}
 	
+	private static int agingSlowdownDefault = 4;
+	private static Map<Class<? extends EntityAgeable>, Integer> agingSlowdownMap =
+			new HashMap<Class<? extends EntityAgeable>, Integer>();
+	static {
+		agingSlowdownMap.put(EntityChicken.class, 2);
+		agingSlowdownMap.put(EntityPig.class, 3);
+		agingSlowdownMap.put(EntityVillager.class, 3);
+	}
 	
 	@SubscribeEvent
 	public void onLivingUpdate(LivingUpdateEvent event) {
+		if (event.entity.worldObj.isRemote) return;
+		
 		// Adult chickens have a 25% chance drop a feather every 8 minutes.
-		if (!event.entity.worldObj.isRemote && (event.entity instanceof EntityChicken) &&
-		    !event.entityLiving.isChild() && ((event.entity.ticksExisted % (8 * 60 * 20)) == 0) &&
+		if ((event.entity instanceof EntityChicken) && !event.entityLiving.isChild() &&
+		    ((event.entity.ticksExisted % (8 * 60 * 20)) == 0) &&
 		    RandomUtils.getBoolean(0.5))
 			WorldUtils.dropStackFromEntity(event.entity, new ItemStack(Items.feather), 1.5F);
+		
+		if (event.entity instanceof EntityAgeable) {
+			EntityAgeable entity = (EntityAgeable)event.entity;
+			int age = entity.getGrowingAge();
+			Integer agingSlowdown = agingSlowdownMap.get(entity.getClass());
+			if (agingSlowdown == null) agingSlowdown = agingSlowdownDefault;
+			if ((age != 0) && ((entity.ticksExisted % agingSlowdown) != 0))
+				entity.setGrowingAge(age + ((age > 0) ? 1 : -1));
+		}
 	}
 	
 }
