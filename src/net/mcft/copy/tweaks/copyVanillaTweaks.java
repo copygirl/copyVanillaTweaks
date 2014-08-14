@@ -16,6 +16,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityEnderman;
@@ -375,12 +376,13 @@ public class copyVanillaTweaks {
 	public void onLivingDrops(LivingDropsEvent event) {
 		// Don't drop any extras if the entity is a child.
 		if (event.entityLiving.isChild()) return;
+		
 		// Chickens drop 3 extra feathers.
 		if (event.entity instanceof EntityChicken)
 			event.drops.add(makeItemToDrop(event.entity, Items.feather, 3));
 		// Pigs drop 2 extra porkchops.
 		else if (event.entity instanceof EntityPig)
-			event.drops.add(makeItemToDrop(event.entity, Items.porkchop, 2));
+			event.drops.add(makeItemToDrop(event.entity, Items.porkchop, 1));
 		// Cows drop 1 extra leather and 1 extra beef.
 		else if (event.entity instanceof EntityCow) {
 			event.drops.add(makeItemToDrop(event.entity, Items.leather, 1));
@@ -429,8 +431,11 @@ public class copyVanillaTweaks {
 			new HashMap<Class<? extends EntityAgeable>, Integer>();
 	static {
 		agingSlowdownMap.put(EntityChicken.class, 2);
-		agingSlowdownMap.put(EntityPig.class, 3);
 		agingSlowdownMap.put(EntityVillager.class, 3);
+	}
+	private static int getAgingSlowdown(EntityAgeable entity) {
+		Integer agingSlowdown = agingSlowdownMap.get(entity.getClass());
+		return ((agingSlowdown != null) ? agingSlowdown : agingSlowdownDefault);
 	}
 	
 	@SubscribeEvent
@@ -446,10 +451,31 @@ public class copyVanillaTweaks {
 		if (event.entity instanceof EntityAgeable) {
 			EntityAgeable entity = (EntityAgeable)event.entity;
 			int age = entity.getGrowingAge();
-			Integer agingSlowdown = agingSlowdownMap.get(entity.getClass());
-			if (agingSlowdown == null) agingSlowdown = agingSlowdownDefault;
-			if ((age != 0) && ((entity.ticksExisted % agingSlowdown) != 0))
+			int agingSlowdown = getAgingSlowdown(entity);
+			if (age == -24000) onChildEntityBred(entity);
+			else if ((age != 0) && ((entity.ticksExisted % agingSlowdown) != 0))
 				entity.setGrowingAge(age + ((age > 0) ? 1 : -1));
+		}
+	}
+	
+	public void onChildEntityBred(EntityAgeable entity) {
+		// Drop additional experience.
+		int agingSlowdown = getAgingSlowdown(entity);
+		int experience = (agingSlowdown - 1) * 2 + RandomUtils.getInt(3);
+		while (experience > 0) {
+			int xp = EntityXPOrb.getXPSplit(experience);
+			entity.worldObj.spawnEntityInWorld(new EntityXPOrb(entity.worldObj, entity.posX, entity.posY, entity.posZ, xp));
+			experience -= xp;
+		}
+		// Spawn additional pigs.
+		if (entity instanceof EntityPig) {
+			int num = (RandomUtils.getBoolean(1.0 / 200) ? 3 : 1);
+			for (int i = 0; i < num; i++) {
+				EntityAgeable newEntity = entity.createChild(entity);
+				newEntity.setGrowingAge(-23999);
+				newEntity.setLocationAndAngles(entity.posX, entity.posY, entity.posZ, RandomUtils.getFloat(360), 0);
+				entity.worldObj.spawnEntityInWorld(newEntity);
+			}
 		}
 	}
 	
