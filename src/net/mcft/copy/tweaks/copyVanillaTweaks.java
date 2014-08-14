@@ -43,6 +43,7 @@ import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -88,6 +89,14 @@ public class copyVanillaTweaks {
 				
 				Items.bucket, Items.bed, Item.getItemFromBlock(Blocks.enchanting_table), Item.getItemFromBlock(Blocks.anvil)
 			));
+		// Remove saw recipes if ForgeMultipart is present.
+		if (Loader.isModLoaded("ForgeMultipart")) {
+			removeRecipesOf.addAll(Arrays.asList(
+				Item.itemRegistry.getObject("ForgeMicroblock:sawStone"),
+				Item.itemRegistry.getObject("ForgeMicroblock:sawIron"),
+				Item.itemRegistry.getObject("ForgeMicroblock:sawDiamond")
+					));
+		}
 		
 		Set<Item> replaceCobbleWithStoneIn = new HashSet<Item>(Arrays.asList(
 				Item.getItemFromBlock(Blocks.lever),
@@ -104,7 +113,8 @@ public class copyVanillaTweaks {
 			if (output == null) continue;
 			if (removeRecipesOf.contains(output.getItem()))
 				recipeIterator.remove();
-			else if (replaceCobbleWithStoneIn.contains(output.getItem())) {
+			else if (replaceCobbleWithStoneIn.contains(output.getItem()) &&
+			         (recipe instanceof ShapedOreRecipe)) {
 				Object[] input = ((ShapedOreRecipe)recipe).getInput();
 				for (int i = 0; i < input.length; i++)
 					if (input[i] instanceof List) {
@@ -332,6 +342,35 @@ public class copyVanillaTweaks {
 				"ooo",
 				"ooo",
 				"ooo", 'o', Items.rotten_flesh);
+		
+		// ForgeMultipart saws
+		
+		if (Loader.isModLoaded("ForgeMultipart")) {
+			
+			Item stoneRod = (Item)Item.itemRegistry.getObject("ForgeMultipart:stoneRod");
+			Item sawStone = (Item)Item.itemRegistry.getObject("ForgeMultipart:sawStone");
+			Item sawIron = (Item)Item.itemRegistry.getObject("ForgeMultipart:sawIron");
+			Item sawDiamond = (Item)Item.itemRegistry.getObject("ForgeMultipart:sawDiamond");
+			
+			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(sawStone),
+					"/--",
+					"/oo", 'o', Items.flint,
+					       '/', "stickWood",
+					       '-', stoneRod));
+			
+			addStationRecipe(sawIron, 3,
+					"/--",
+					"/oo", 'o', "ingotIron",
+					       '/', "stickWood",
+					       '-', stoneRod);
+			
+			addStationRecipe(sawDiamond, 6,
+					"/--",
+					"/oo", 'o', "gemDiamond",
+					       '/', "stickWood",
+					       '-', stoneRod);
+			
+		}
 		
 	}
 	private static void setToolDurability(int durability, Item... items) {
