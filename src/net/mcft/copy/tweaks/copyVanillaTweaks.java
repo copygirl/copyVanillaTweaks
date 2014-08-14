@@ -10,6 +10,7 @@ import java.util.Set;
 
 import net.mcft.copy.betterstorage.api.crafting.BetterStorageCrafting;
 import net.mcft.copy.betterstorage.api.crafting.ShapedStationRecipe;
+import net.mcft.copy.betterstorage.api.crafting.ShapelessStationRecipe;
 import net.mcft.copy.core.util.RandomUtils;
 import net.mcft.copy.core.util.WorldUtils;
 import net.minecraft.block.Block;
@@ -87,7 +88,8 @@ public class copyVanillaTweaks {
 				Items.iron_helmet,    Items.iron_chestplate,    Items.iron_leggings,    Items.iron_boots,
 				Items.diamond_helmet, Items.diamond_chestplate, Items.diamond_leggings, Items.diamond_boots,
 				
-				Items.bucket, Items.bed, Item.getItemFromBlock(Blocks.enchanting_table), Item.getItemFromBlock(Blocks.anvil)
+				Items.flint_and_steel, Items.shears, Items.bucket,
+				Items.bed, Item.getItemFromBlock(Blocks.enchanting_table), Item.getItemFromBlock(Blocks.anvil)
 			));
 		// Remove saw recipes if ForgeMultipart is present.
 		if (Loader.isModLoaded("ForgeMultipart")) {
@@ -168,177 +170,184 @@ public class copyVanillaTweaks {
 		
 		// Gold tools and armor
 		
-		addStationRecipe(Items.golden_sword, 2,
+		addShapedStationRecipe(Items.golden_sword, 2,
 				"o",
 				"o",
 				"/", 'o', "ingotGold",
 				     '/', "stickWood");
-		addStationRecipe(Items.golden_pickaxe, 2,
+		addShapedStationRecipe(Items.golden_pickaxe, 2,
 				"ooo",
 				" / ",
 				" / ", 'o', "ingotGold",
 				       '/', "stickWood");
-		addStationRecipe(Items.golden_shovel, 1,
+		addShapedStationRecipe(Items.golden_shovel, 1,
 				"o",
 				"/",
 				"/", 'o', "ingotGold",
 				     '/', "stickWood");
-		addStationRecipe(Items.golden_axe, 1,
+		addShapedStationRecipe(Items.golden_axe, 1,
 				"oo",
 				"o/",
 				" /", 'o', "ingotGold",
 				      '/', "stickWood");
-		addStationRecipe(Items.golden_hoe, 1,
+		addShapedStationRecipe(Items.golden_hoe, 1,
 				"oo",
 				" /",
 				" /", 'o', "ingotGold",
 				      '/', "stickWood");
 		
-		addStationRecipe(Items.golden_helmet, 2,
+		addShapedStationRecipe(Items.golden_helmet, 2,
 				"ooo",
 				"oHo", 'o', "ingotGold",
 				       'H', Items.leather_helmet);
-		addStationRecipe(Items.golden_chestplate, 3,
+		addShapedStationRecipe(Items.golden_chestplate, 3,
 				"oCo",
 				"ooo",
 				"ooo", 'o', "ingotGold",
 				       'C', Items.leather_chestplate);
-		addStationRecipe(Items.golden_leggings, 2,
+		addShapedStationRecipe(Items.golden_leggings, 2,
 				"ooo",
 				"oLo",
 				"o o", 'o', "ingotGold",
 				       'L', Items.leather_leggings);
-		addStationRecipe(Items.golden_boots, 2,
+		addShapedStationRecipe(Items.golden_boots, 2,
 				"oBo",
 				"o o", 'o', "ingotGold",
 				       'B', Items.leather_boots);
 		
 		// Iron tools and armor
 		
-		addStationRecipe(Items.iron_sword, 6,
+		addShapedStationRecipe(Items.iron_sword, 6,
 				"o",
 				"o",
 				"/", 'o', "ingotIron",
 				     '/', "stickWood");
-		addStationRecipe(Items.iron_pickaxe, 8,
+		addShapedStationRecipe(Items.iron_pickaxe, 8,
 				"ooo",
 				" / ",
 				" / ", 'o', "ingotIron",
 				       '/', "stickWood");
-		addStationRecipe(Items.iron_shovel, 4,
+		addShapedStationRecipe(Items.iron_shovel, 4,
 				"o",
 				"/",
 				"/", 'o', "ingotIron",
 				     '/', "stickWood");
-		addStationRecipe(Items.iron_axe, 4,
+		addShapedStationRecipe(Items.iron_axe, 4,
 				"oo",
 				"o/",
 				" /", 'o', "ingotIron",
 				      '/', "stickWood");
-		addStationRecipe(Items.iron_hoe, 4,
+		addShapedStationRecipe(Items.iron_hoe, 4,
 				"oo",
 				" /",
 				" /", 'o', "ingotIron",
 				      '/', "stickWood");
 		
-		addStationRecipe(Items.iron_helmet, 8,
+		addShapedStationRecipe(Items.iron_helmet, 8,
 				"ooo",
 				"oHo", 'o', "ingotIron",
 				       'H', Items.leather_helmet);
-		addStationRecipe(Items.iron_chestplate, 12,
+		addShapedStationRecipe(Items.iron_chestplate, 12,
 				"oCo",
 				"ooo",
 				"ooo", 'o', "ingotIron",
 				       'C', Items.leather_chestplate);
-		addStationRecipe(Items.iron_leggings, 10,
+		addShapedStationRecipe(Items.iron_leggings, 10,
 				"ooo",
 				"oLo",
 				"o o", 'o', "ingotIron",
 				       'L', Items.leather_leggings);
-		addStationRecipe(Items.iron_boots, 8,
+		addShapedStationRecipe(Items.iron_boots, 8,
 				"oBo",
 				"o o", 'o', "ingotIron",
 				       'B', Items.leather_boots);
 		
 		// Diamond tools and armor
 		
-		addStationRecipe(Items.diamond_sword, 12,
+		addShapedStationRecipe(Items.diamond_sword, 12,
 				"o",
 				"x",
 				"/", 'o', "gemDiamond",
 				     'x', "gemEmerald",
 				     '/', "stickWood");
-		addStationRecipe(Items.diamond_pickaxe, 16,
+		addShapedStationRecipe(Items.diamond_pickaxe, 16,
 				"oxo",
 				" / ",
 				" / ", 'o', "gemDiamond",
 				       'x', "gemEmerald",
 				       '/', "stickWood");
-		addStationRecipe(Items.diamond_shovel, 8,
+		addShapedStationRecipe(Items.diamond_shovel, 8,
 				"o",
 				"/",
 				"/", 'o', "gemDiamond",
 				     '/', "stickWood");
-		addStationRecipe(Items.diamond_axe, 8,
+		addShapedStationRecipe(Items.diamond_axe, 8,
 				"ox",
 				"o/",
 				" /", 'o', "gemDiamond",
 				      'x', "gemEmerald",
 				      '/', "stickWood");
-		addStationRecipe(Items.diamond_hoe, 8,
+		addShapedStationRecipe(Items.diamond_hoe, 8,
 				"ox",
 				" /",
 				" /", 'o', "gemDiamond",
 				      'x', "gemEmerald",
 				      '/', "stickWood");
 		
-		addStationRecipe(Items.diamond_helmet, 16,
+		addShapedStationRecipe(Items.diamond_helmet, 16,
 				"oxo",
 				"oHo", 'o', "gemDiamond",
 				       'x', "gemEmerald",
 				       'H', Items.leather_helmet);
-		addStationRecipe(Items.diamond_chestplate, 24,
+		addShapedStationRecipe(Items.diamond_chestplate, 24,
 				"oCo",
 				"oxo",
 				"ooo", 'o', "gemDiamond",
 				       'x', "gemEmerald",
 				       'C', Items.leather_chestplate);
-		addStationRecipe(Items.diamond_leggings, 20,
+		addShapedStationRecipe(Items.diamond_leggings, 20,
 				"oxo",
 				"oLo",
 				"o o", 'o', "gemDiamond",
 				       'x', "gemEmerald",
 				       'L', Items.leather_leggings);
-		addStationRecipe(Items.diamond_boots, 16,
+		addShapedStationRecipe(Items.diamond_boots, 16,
 				"oBo",
 				"o o", 'o', "gemDiamond",
 				       'B', Items.leather_boots);
 		
 		// Other recipes
 		
-		addStationRecipe(Items.bucket, 2,
+		addShapelessStationRecipe(Items.flint_and_steel, 1,
+				Items.flint, "ingotIron");
+		
+		addShapedStationRecipe(Items.shears, 1,
+				" o",
+				"o ", 'o', "ingotIron");
+		
+		addShapedStationRecipe(Items.bucket, 2,
 				"o o",
 				" o ", 'o', "ingotIron");
 		
-		addStationRecipe(Items.bed, 20,
+		addShapedStationRecipe(Items.bed, 20,
 				"WWW",
 				"PPP", 'W', Blocks.wool,
 				       'P', "plankWood");
 		
-		addStationRecipe(Blocks.enchanting_table, 30,
+		addShapedStationRecipe(Blocks.enchanting_table, 30,
 				" B ",
 				"o#o",
 				"###", 'B', Items.book,
 				       'o', "gemDiamond",
 				       '#', Blocks.obsidian);
 		
-		addStationRecipe(Blocks.anvil, 20,
+		addShapedStationRecipe(Blocks.anvil, 20,
 				"OOO",
 				" o ",
 				"ooo", 'O', "blockIron",
 				       'o', "ingotIron");
 		
-		addStationRecipe(new ItemStack(Items.leather, 4), 1,
+		addShapedStationRecipe(new ItemStack(Items.leather, 4), 1,
 				"ooo",
 				"ooo",
 				"ooo", 'o', Items.rotten_flesh);
@@ -358,13 +367,13 @@ public class copyVanillaTweaks {
 					       '/', "stickWood",
 					       '-', stoneRod));
 			
-			addStationRecipe(sawIron, 3,
+			addShapedStationRecipe(sawIron, 3,
 					"/--",
 					"/oo", 'o', "ingotIron",
 					       '/', "stickWood",
 					       '-', stoneRod);
 			
-			addStationRecipe(sawDiamond, 6,
+			addShapedStationRecipe(sawDiamond, 6,
 					"/--",
 					"/oo", 'o', "gemDiamond",
 					       '/', "stickWood",
@@ -373,6 +382,7 @@ public class copyVanillaTweaks {
 		}
 		
 	}
+	
 	private static void setToolDurability(int durability, Item... items) {
 		for (Item item : items)
 			item.setMaxDamage(durability);
@@ -382,16 +392,29 @@ public class copyVanillaTweaks {
 		for (ItemArmor item : items)
 			item.setMaxDamage(durability * maxDamageArray[item.armorType]);
 	}
-	private static void addStationRecipe(ItemStack output, int experience, Object... input) {
+	
+	private static void addShapedStationRecipe(ItemStack output, int experience, Object... input) {
 		BetterStorageCrafting.addStationRecipe(new ShapedStationRecipe(
 				new ItemStack[]{ null, null, null, null, output }, input
 			).setRequiredExperience(experience));
 	}
-	private static void addStationRecipe(Item output, int experience, Object... input) {
-		addStationRecipe(new ItemStack(output), experience, input);
+	private static void addShapedStationRecipe(Item output, int experience, Object... input) {
+		addShapedStationRecipe(new ItemStack(output), experience, input);
 	}
-	private static void addStationRecipe(Block output, int experience, Object... input) {
-		addStationRecipe(new ItemStack(output), experience, input);
+	private static void addShapedStationRecipe(Block output, int experience, Object... input) {
+		addShapedStationRecipe(new ItemStack(output), experience, input);
+	}
+	
+	private static void addShapelessStationRecipe(ItemStack output, int experience, Object... input) {
+		BetterStorageCrafting.addStationRecipe(new ShapelessStationRecipe(
+				new ItemStack[]{ null, null, null, null, output }, input
+			).setRequiredExperience(experience));
+	}
+	private static void addShapelessStationRecipe(Item output, int experience, Object... input) {
+		addShapelessStationRecipe(new ItemStack(output), experience, input);
+	}
+	private static void addShapelessStationRecipe(Block output, int experience, Object... input) {
+		addShapelessStationRecipe(new ItemStack(output), experience, input);
 	}
 	
 	
