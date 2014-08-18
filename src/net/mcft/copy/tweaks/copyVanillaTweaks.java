@@ -389,9 +389,7 @@ public class copyVanillaTweaks {
 	}
 	
 	private static void addShapedStationRecipe(ItemStack output, int experience, Object... input) {
-		BetterStorageCrafting.addStationRecipe(new ShapedStationRecipe(
-				new ItemStack[]{ null, null, null, null, output }, input
-			).setRequiredExperience(experience));
+		BetterStorageCrafting.addStationRecipe(new ShapedStationRecipe(output, input).setRequiredExperience(experience));
 	}
 	private static void addShapedStationRecipe(Item output, int experience, Object... input) {
 		addShapedStationRecipe(new ItemStack(output), experience, input);
@@ -401,9 +399,7 @@ public class copyVanillaTweaks {
 	}
 	
 	private static void addShapelessStationRecipe(ItemStack output, int experience, Object... input) {
-		BetterStorageCrafting.addStationRecipe(new ShapelessStationRecipe(
-				new ItemStack[]{ null, null, null, null, output }, input
-			).setRequiredExperience(experience));
+		BetterStorageCrafting.addStationRecipe(new ShapelessStationRecipe(output, input).setRequiredExperience(experience));
 	}
 	private static void addShapelessStationRecipe(Item output, int experience, Object... input) {
 		addShapelessStationRecipe(new ItemStack(output), experience, input);
