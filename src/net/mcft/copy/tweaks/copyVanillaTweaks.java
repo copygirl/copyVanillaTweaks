@@ -351,10 +351,10 @@ public class copyVanillaTweaks {
 		
 		if (Loader.isModLoaded("ForgeMultipart")) {
 			
-			Item stoneRod = (Item)Item.itemRegistry.getObject("ForgeMultipart:stoneRod");
-			Item sawStone = (Item)Item.itemRegistry.getObject("ForgeMultipart:sawStone");
-			Item sawIron = (Item)Item.itemRegistry.getObject("ForgeMultipart:sawIron");
-			Item sawDiamond = (Item)Item.itemRegistry.getObject("ForgeMultipart:sawDiamond");
+			Item stoneRod = (Item)Item.itemRegistry.getObject("ForgeMicroblock:stoneRod");
+			Item sawStone = (Item)Item.itemRegistry.getObject("ForgeMicroblock:sawStone");
+			Item sawIron = (Item)Item.itemRegistry.getObject("ForgeMicroblock:sawIron");
+			Item sawDiamond = (Item)Item.itemRegistry.getObject("ForgeMicroblock:sawDiamond");
 			
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(sawStone),
 					"/--",
