@@ -1,14 +1,21 @@
-[{
-  "modid": "copy's Vanilla Tweaks",
-  "name": "copy's Vanilla Tweaks",
-  "description": "",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
-  "authors": [ "copygirl" ],
-  "credits": "",
-  "logoFile": "",
-  "screenshots": [ ],
-  "dependencies": [ ]
-}]
+{
+  "modListVersion": 2,
+  "modList": [{
+    "modid": "copyVanillaTweaks",
+    "name": "copy's Vanilla Tweaks",
+    "description": "Personal tweaks mod to adjust Vanilla gameplay and stuffs.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "https://github.com/copygirl/copyVanillaTweaks",
+    "updateUrl": "https://github.com/copygirl/copyVanillaTweaks/releases",
+    "authorList": [ "copygirl" ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [ ],
+    "parent": "",
+    "requiredMods": [ "Forge", "copycore", "betterstorage" ],
+    "dependencies": [ "copycore", "betterstorage" ],
+    "dependants": [ ],
+    "useDependencyInformation": true
+  }]
+}
