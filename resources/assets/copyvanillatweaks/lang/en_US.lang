@@ -1,0 +1,48 @@
+config.copyvanillatweaks.category.recipes=Recipe Settings
+config.copyvanillatweaks.category.recipes.tooltip=Controls whether certain recipes get changed / replaced.
+
+config.copyvanillatweaks.recipes.replaceStoneTools=Replace Stone Tools
+config.copyvanillatweaks.recipes.replaceStoneTools.tooltip=Replaces stone tool recipes with a crafting table recipe requiring string, flint and smoothstone.
+config.copyvanillatweaks.recipes.replaceGoldTools=Replace Gold Tools
+config.copyvanillatweaks.recipes.replaceGoldTools.tooltip=Replaces gold tool recipes with a crafting station recipe requiring experience.
+config.copyvanillatweaks.recipes.replaceIronTools=Replace Iron Tools
+config.copyvanillatweaks.recipes.replaceIronTools.tooltip=Replaces iron tool recipes with a crafting station recipe requiring experience.
+config.copyvanillatweaks.recipes.replaceDiamondTools=Replace Diamond Tools
+config.copyvanillatweaks.recipes.replaceDiamondTools.tooltip=Replaces diamond tool recipes with a crafting station recipe requiring emeralds and experience.
+
+config.copyvanillatweaks.recipes.replaceGoldArmor=Replace Gold Armor
+config.copyvanillatweaks.recipes.replaceGoldArmor.tooltip=Replaces gold armor recipes with a crafting station recipe requiring leather armor and experience.
+config.copyvanillatweaks.recipes.replaceIronArmor=Replace Iron Armor
+config.copyvanillatweaks.recipes.replaceIronArmor.tooltip=Replaces iron armor recipes with a crafting station recipe requiring leather armor and experience.
+config.copyvanillatweaks.recipes.replaceDiamondArmor=Replace Diamond Armor
+config.copyvanillatweaks.recipes.replaceDiamondArmor.tooltip=Replaces diamond armor recipes with a crafting station recipe requiring leather armor, emeralds and experience.
+
+config.copyvanillatweaks.recipes.replaceFlintAndSteel=Replace Flint And Steel
+config.copyvanillatweaks.recipes.replaceFlintAndSteel.tooltip=Replaces flint and steel recipe with a crafting station recipe requiring experience.
+config.copyvanillatweaks.recipes.replaceShears=Replace Shears
+config.copyvanillatweaks.recipes.replaceShears.tooltip=Replaces shears recipe with a crafting station recipe requiring experience.
+config.copyvanillatweaks.recipes.replaceBucket=Replace Bucket
+config.copyvanillatweaks.recipes.replaceBucket.tooltip=Replaces bucket recipe with a crafting station recipe requiring experience.
+config.copyvanillatweaks.recipes.replaceSaws=Replace Saws
+config.copyvanillatweaks.recipes.replaceSaws.tooltip=Replaces ForgeMultipart saw recipes to require 2 of the material. Iron and diamond saw recipes require crafting station and experience.
+
+config.copyvanillatweaks.recipes.replaceBed=Replace Bed
+config.copyvanillatweaks.recipes.replaceBed.tooltip=Replaces bed recipe with a crafting station recipe requiring experience.
+config.copyvanillatweaks.recipes.replaceEnchantingTable=Replace Enchanting Table
+config.copyvanillatweaks.recipes.replaceEnchantingTable.tooltip=Replaces enchanting table recipe with a crafting station recipe requiring experience.
+config.copyvanillatweaks.recipes.replaceAnvil=Replace Anvil
+config.copyvanillatweaks.recipes.replaceAnvil.tooltip=Replaces anvil recipe with a crafting station recipe requiring experience.
+
+config.copyvanillatweaks.recipes.replaceCobbleWithSmoothstone=Replace Cobble with Smoothstone
+config.copyvanillatweaks.recipes.replaceCobbleWithSmoothstone.tooltip=Replaces cobblestone with smoothstone in recipes for: Lever, Dispenser, Dropper, Piston, Brewing Stand.
+
+
+config.copyvanillatweaks.category.tweaks=Tweak Settings
+config.copyvanillatweaks.category.tweaks.tooltip=Controls whether certain tweaks are enabled.
+
+config.copyvanillatweaks.tweaks.enableGravelFlintDropTweak=Gravel Flint Drop Tweak
+config.copyvanillatweaks.tweaks.enableGravelFlintDropTweak.tooltip=Flint dropping from gravel depends on the shovel tier. Lower tier = higher chance. No flint without shovel.
+config.copyvanillatweaks.tweaks.enableMobDropTweak=Mob Drop Tweak
+config.copyvanillatweaks.tweaks.enableMobDropTweak.tooltip=Mobs drop additional loot. Witches drop potions. Adult chickens occasionally drop feathers.
+config.copyvanillatweaks.tweaks.enableBreedingAndGrowthTweak=Animal Breeding / Growth Tweak
+config.copyvanillatweaks.tweaks.enableBreedingAndGrowthTweak.tooltip=Animals grow up slower and take longer to be bred again. Breeding gives more XP. Additional pigs from breeding.
