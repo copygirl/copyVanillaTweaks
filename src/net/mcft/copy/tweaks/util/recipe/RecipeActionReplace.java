@@ -48,9 +48,8 @@ public class RecipeActionReplace implements IRecipeAction {
 	private static boolean matches(Object match, Object item) {
 		if (item instanceof List) {
 			for (ItemStack i : (List<ItemStack>)item)
-				if (!matches(match, i))
-					return false;
-			return true;
+				if (matches(match, i)) return true;
+			return false;
 		} else if (item instanceof ItemStack)
 			return matches(match, (ItemStack)item);
 		else throw new IllegalArgumentException();
@@ -63,9 +62,11 @@ public class RecipeActionReplace implements IRecipeAction {
 			return (item.getItem() == Item.getItemFromBlock((Block)match));
 		else if (match instanceof ItemStack)
 			return StackUtils.matches((ItemStack)match, item);
-		else if (match instanceof String)
-			return Arrays.asList(OreDictionary.getOreNames()).contains(match);
-		else throw new IllegalArgumentException();
+		else if (match instanceof String) {
+			for (ItemStack m : OreDictionary.getOres((String)match))
+				if (StackUtils.matches(m, item)) return true;
+			return false;
+		} else throw new IllegalArgumentException();
 	}
 	
 	private static Object makeReplacement(Object with) {
