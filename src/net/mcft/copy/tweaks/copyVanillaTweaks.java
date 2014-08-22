@@ -91,7 +91,7 @@ public class copyVanillaTweaks {
 			iterator.registerAction(new RecipeMatcherOutputItem(
 						Blocks.lever, Blocks.dispenser, Blocks.dropper,
 						Blocks.piston, Items.brewing_stand
-					), new RecipeActionReplace("cobblestone", "smoothstone"));
+					), new RecipeActionReplace("cobblestone", "stone"));
 		
 		iterator.go();
 		
