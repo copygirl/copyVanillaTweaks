@@ -109,27 +109,27 @@ public final class ToolRecipes {
 		// ====== IRON TOOLS ======
 		if (copyVanillaTweaks.config.<Boolean>get(VanillaTweaksConfig.replaceIronTools)) {
 			
-			StationUtils.addShaped(Items.iron_sword, 6,
+			StationUtils.addShaped(Items.iron_sword, 4,
 					"o",
 					"o",
 					"/", 'o', "ingotIron",
 					     '/', "stickWood");
-			StationUtils.addShaped(Items.iron_pickaxe, 8,
+			StationUtils.addShaped(Items.iron_pickaxe, 6,
 					"ooo",
 					" / ",
 					" / ", 'o', "ingotIron",
 					       '/', "stickWood");
-			StationUtils.addShaped(Items.iron_shovel, 4,
+			StationUtils.addShaped(Items.iron_shovel, 3,
 					"o",
 					"/",
 					"/", 'o', "ingotIron",
 					     '/', "stickWood");
-			StationUtils.addShaped(Items.iron_axe, 4,
+			StationUtils.addShaped(Items.iron_axe, 3,
 					"oo",
 					"o/",
 					" /", 'o', "ingotIron",
 					      '/', "stickWood");
-			StationUtils.addShaped(Items.iron_hoe, 4,
+			StationUtils.addShaped(Items.iron_hoe, 2,
 					"oo",
 					" /",
 					" /", 'o', "ingotIron",
@@ -139,30 +139,30 @@ public final class ToolRecipes {
 		// ====== DIAMOND TOOLS ======
 		if (copyVanillaTweaks.config.<Boolean>get(VanillaTweaksConfig.replaceDiamondTools)) {
 			
-			StationUtils.addShaped(Items.diamond_sword, 12,
+			StationUtils.addShaped(Items.diamond_sword, 8,
 					"o",
 					"x",
 					"/", 'o', "gemDiamond",
 					     'x', "gemEmerald",
 					     '/', "stickWood");
-			StationUtils.addShaped(Items.diamond_pickaxe, 16,
+			StationUtils.addShaped(Items.diamond_pickaxe, 12,
 					"oxo",
 					" / ",
 					" / ", 'o', "gemDiamond",
 					       'x', "gemEmerald",
 					       '/', "stickWood");
-			StationUtils.addShaped(Items.diamond_shovel, 8,
+			StationUtils.addShaped(Items.diamond_shovel, 6,
 					"o",
 					"/",
 					"/", 'o', "gemDiamond",
 					     '/', "stickWood");
-			StationUtils.addShaped(Items.diamond_axe, 8,
+			StationUtils.addShaped(Items.diamond_axe, 6,
 					"ox",
 					"o/",
 					" /", 'o', "gemDiamond",
 					      'x', "gemEmerald",
 					      '/', "stickWood");
-			StationUtils.addShaped(Items.diamond_hoe, 8,
+			StationUtils.addShaped(Items.diamond_hoe, 4,
 					"ox",
 					" /",
 					" /", 'o', "gemDiamond",

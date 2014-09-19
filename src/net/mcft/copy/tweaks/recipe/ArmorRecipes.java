@@ -57,21 +57,21 @@ public final class ArmorRecipes {
 		// ====== IRON ARMOR ======
 		if (copyVanillaTweaks.config.<Boolean>get(VanillaTweaksConfig.replaceIronArmor)) {
 			
-			StationUtils.addShaped(Items.iron_helmet, 8,
+			StationUtils.addShaped(Items.iron_helmet, 4,
 					"ooo",
 					"oHo", 'o', "ingotIron",
 					       'H', Items.leather_helmet);
-			StationUtils.addShaped(Items.iron_chestplate, 12,
+			StationUtils.addShaped(Items.iron_chestplate, 8,
 					"oCo",
 					"ooo",
 					"ooo", 'o', "ingotIron",
 					       'C', Items.leather_chestplate);
-			StationUtils.addShaped(Items.iron_leggings, 10,
+			StationUtils.addShaped(Items.iron_leggings, 6,
 					"ooo",
 					"oLo",
 					"o o", 'o', "ingotIron",
 					       'L', Items.leather_leggings);
-			StationUtils.addShaped(Items.iron_boots, 8,
+			StationUtils.addShaped(Items.iron_boots, 4,
 					"oBo",
 					"o o", 'o', "ingotIron",
 					       'B', Items.leather_boots);
@@ -80,24 +80,24 @@ public final class ArmorRecipes {
 		// ====== DIAMOND ARMOR ======
 		if (copyVanillaTweaks.config.<Boolean>get(VanillaTweaksConfig.replaceDiamondArmor)) {
 			
-			StationUtils.addShaped(Items.diamond_helmet, 16,
+			StationUtils.addShaped(Items.diamond_helmet, 8,
 					"oxo",
 					"oHo", 'o', "gemDiamond",
 					       'x', "gemEmerald",
 					       'H', Items.leather_helmet);
-			StationUtils.addShaped(Items.diamond_chestplate, 24,
+			StationUtils.addShaped(Items.diamond_chestplate, 16,
 					"oCo",
 					"oxo",
 					"ooo", 'o', "gemDiamond",
 					       'x', "gemEmerald",
 					       'C', Items.leather_chestplate);
-			StationUtils.addShaped(Items.diamond_leggings, 20,
+			StationUtils.addShaped(Items.diamond_leggings, 12,
 					"oxo",
 					"oLo",
 					"o o", 'o', "gemDiamond",
 					       'x', "gemEmerald",
 					       'L', Items.leather_leggings);
-			StationUtils.addShaped(Items.diamond_boots, 16,
+			StationUtils.addShaped(Items.diamond_boots, 8,
 					"oBo",
 					"o o", 'o', "gemDiamond",
 					       'B', Items.leather_boots);

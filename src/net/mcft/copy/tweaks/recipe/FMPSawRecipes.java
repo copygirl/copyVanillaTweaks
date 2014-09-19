@@ -45,13 +45,13 @@ public final class FMPSawRecipes {
 				       '/', "stickWood",
 				       '-', stoneRod));
 		
-		StationUtils.addShaped(sawIron, 3,
+		StationUtils.addShaped(sawIron, 2,
 				"/--",
 				"/oo", 'o', "ingotIron",
 				       '/', "stickWood",
 				       '-', stoneRod);
 		
-		StationUtils.addShaped(sawDiamond, 6,
+		StationUtils.addShaped(sawDiamond, 4,
 				"/--",
 				"/oo", 'o', "gemDiamond",
 				       '/', "stickWood",
