@@ -15,10 +15,10 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public final class FMPSawRecipes {
 	
-	private static final Item stoneRod   = (Item)Item.itemRegistry.getObject("ForgeMicroblock:stoneRod");
-	private static final Item sawStone   = (Item)Item.itemRegistry.getObject("ForgeMicroblock:sawStone");
-	private static final Item sawIron    = (Item)Item.itemRegistry.getObject("ForgeMicroblock:sawIron");
-	private static final Item sawDiamond = (Item)Item.itemRegistry.getObject("ForgeMicroblock:sawDiamond");
+	private static final Item stoneRod   = GameRegistry.findItem("ForgeMicroblock", "stoneRod");
+	private static final Item sawStone   = GameRegistry.findItem("ForgeMicroblock", "sawStone");
+	private static final Item sawIron    = GameRegistry.findItem("ForgeMicroblock", "sawIron");
+	private static final Item sawDiamond = GameRegistry.findItem("ForgeMicroblock", "sawDiamond");
 	
 	private FMPSawRecipes() {  }
 	
