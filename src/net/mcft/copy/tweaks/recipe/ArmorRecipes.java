@@ -24,7 +24,7 @@ public final class ArmorRecipes {
 		
 	}
 	
-	public static void registerRemove(RecipeIterator iterator, Setting<Boolean> setting, Object... items) {
+	private static void registerRemove(RecipeIterator iterator, Setting<Boolean> setting, Object... items) {
 		if (copyVanillaTweaks.config.<Boolean>get(setting))
 			iterator.registerAction(new RecipeMatcherOutputItem(items), RecipeActionRemove.instance);
 	}
