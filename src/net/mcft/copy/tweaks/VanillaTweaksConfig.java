@@ -49,6 +49,9 @@ public class VanillaTweaksConfig extends Config {
 	@ConfigSetting(requiresMinecraftRestart = true)
 	public static Setting replaceThaumcraft = new BooleanSetting("recipes.replaceThaumcraft", true)
 			.setComment("Replaces Thaumcraft base wand, tool and armor recipes.");
+	@ConfigSetting(requiresMinecraftRestart = true)
+	public static Setting replaceBotania = new BooleanSetting("recipes.replaceBotania", true)
+			.setComment("Replaces Botania tool and armor recipes.");
 	
 	@ConfigSetting(requiresMinecraftRestart = true)
 	public static Setting replaceBed = new BooleanSetting("recipes.replaceBed", true)

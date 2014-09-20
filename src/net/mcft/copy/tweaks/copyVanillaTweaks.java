@@ -8,6 +8,7 @@ import net.mcft.copy.tweaks.handlers.AnimalBreedingGrowthHandler;
 import net.mcft.copy.tweaks.handlers.GravelFlintDropHandler;
 import net.mcft.copy.tweaks.handlers.MobDropHandler;
 import net.mcft.copy.tweaks.recipe.ArmorRecipes;
+import net.mcft.copy.tweaks.recipe.BotaniaRecipes;
 import net.mcft.copy.tweaks.recipe.FMPSawRecipes;
 import net.mcft.copy.tweaks.recipe.MiscRecipes;
 import net.mcft.copy.tweaks.recipe.ThaumcraftRecipes;
@@ -89,6 +90,7 @@ public class copyVanillaTweaks {
 		
 		FMPSawRecipes.register(iterator);
 		ThaumcraftRecipes.register(iterator);
+		BotaniaRecipes.register(iterator);
 		
 		if (config.<Boolean>get(VanillaTweaksConfig.replaceCobbleWithSmoothstone))
 			iterator.registerAction(new RecipeMatcherOutputItem(
@@ -108,6 +110,7 @@ public class copyVanillaTweaks {
 		
 		FMPSawRecipes.add();
 		ThaumcraftRecipes.add();
+		BotaniaRecipes.add();
 		
 	}
 	
