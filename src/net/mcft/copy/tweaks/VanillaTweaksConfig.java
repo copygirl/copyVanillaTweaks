@@ -44,8 +44,11 @@ public class VanillaTweaksConfig extends Config {
 	
 	@ConfigSetting(requiresMinecraftRestart = true)
 	public static Setting replaceSaws = new BooleanSetting("recipes.replaceSaws", true)
-			.setComment("Replaces ForgeMultipart saw recipes to require 2 of the material." +
+			.setComment("Replaces ForgeMultipart saw recipes to require 2 of the material. " +
 			            "Iron and diamond saw recipes require crafting station and experience.");
+	@ConfigSetting(requiresMinecraftRestart = true)
+	public static Setting replaceThaumcraft = new BooleanSetting("recipes.replaceThaumcraft", true)
+			.setComment("Replaces Thaumcraft base wand, tool and armor recipes.");
 	
 	@ConfigSetting(requiresMinecraftRestart = true)
 	public static Setting replaceBed = new BooleanSetting("recipes.replaceBed", true)

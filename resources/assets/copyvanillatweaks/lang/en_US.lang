@@ -23,8 +23,11 @@ config.copyvanillatweaks.recipes.replaceShears=Replace Shears
 config.copyvanillatweaks.recipes.replaceShears.tooltip=Replaces shears recipe with a crafting station recipe requiring experience.
 config.copyvanillatweaks.recipes.replaceBucket=Replace Bucket
 config.copyvanillatweaks.recipes.replaceBucket.tooltip=Replaces bucket recipe with a crafting station recipe requiring experience.
+
 config.copyvanillatweaks.recipes.replaceSaws=Replace Saws
 config.copyvanillatweaks.recipes.replaceSaws.tooltip=Replaces ForgeMultipart saw recipes to require 2 of the material. Iron and diamond saw recipes require crafting station and experience.
+config.copyvanillatweaks.recipes.replaceThaumcraft=Replace Thaumcraft Recipes
+config.copyvanillatweaks.recipes.replaceThaumcraft.tooltip=Replaces Thaumcraft base wand, tool and armor recipes.
 
 config.copyvanillatweaks.recipes.replaceBed=Replace Bed
 config.copyvanillatweaks.recipes.replaceBed.tooltip=Replaces bed recipe with a crafting station recipe requiring experience.

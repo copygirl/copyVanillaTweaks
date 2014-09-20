@@ -10,6 +10,7 @@ import net.mcft.copy.tweaks.handlers.MobDropHandler;
 import net.mcft.copy.tweaks.recipe.ArmorRecipes;
 import net.mcft.copy.tweaks.recipe.FMPSawRecipes;
 import net.mcft.copy.tweaks.recipe.MiscRecipes;
+import net.mcft.copy.tweaks.recipe.ThaumcraftRecipes;
 import net.mcft.copy.tweaks.recipe.ToolRecipes;
 import net.mcft.copy.tweaks.util.ItemUtils;
 import net.mcft.copy.tweaks.util.recipe.RecipeActionReplace;
@@ -85,7 +86,9 @@ public class copyVanillaTweaks {
 		ToolRecipes.register(iterator);
 		ArmorRecipes.register(iterator);
 		MiscRecipes.register(iterator);
+		
 		FMPSawRecipes.register(iterator);
+		ThaumcraftRecipes.register(iterator);
 		
 		if (config.<Boolean>get(VanillaTweaksConfig.replaceCobbleWithSmoothstone))
 			iterator.registerAction(new RecipeMatcherOutputItem(
@@ -98,10 +101,14 @@ public class copyVanillaTweaks {
 	}
 	
 	private void addRecipes() {
+		
 		ToolRecipes.add();
 		ArmorRecipes.add();
 		MiscRecipes.add();
+		
 		FMPSawRecipes.add();
+		ThaumcraftRecipes.add();
+		
 	}
 	
 }
