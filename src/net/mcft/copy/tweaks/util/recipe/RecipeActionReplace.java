@@ -1,18 +1,14 @@
 package net.mcft.copy.tweaks.util.recipe;
 
-import java.util.Arrays;
 import java.util.List;
 
 import net.mcft.copy.core.util.StackUtils;
+import net.mcft.copy.tweaks.util.RecipeUtils;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.ShapedRecipes;
-import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.oredict.ShapedOreRecipe;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class RecipeActionReplace implements IRecipeAction {
 	
@@ -25,18 +21,7 @@ public class RecipeActionReplace implements IRecipeAction {
 	
 	@Override
 	public void doAction(RecipeIterator iterator, IRecipe recipe) {
-		List items;
-		
-		if (recipe instanceof ShapedRecipes)
-			items = Arrays.asList(((ShapedRecipes)recipe).recipeItems);
-		else if (recipe instanceof ShapelessRecipes)
-			items = ((ShapelessRecipes)recipe).recipeItems;
-		else if (recipe instanceof ShapedOreRecipe)
-			items = Arrays.asList(((ShapedOreRecipe)recipe).getInput());
-		else if (recipe instanceof ShapelessOreRecipe)
-			items = ((ShapelessOreRecipe)recipe).getInput();
-		else return;
-		
+		List items = RecipeUtils.getRecipeInput(recipe);
 		for (int i = 0; i < items.size(); i++) {
 			Object item = items.get(i);
 			if (item == null) continue;

@@ -17,6 +17,7 @@ import net.mcft.copy.tweaks.util.ItemUtils;
 import net.mcft.copy.tweaks.util.recipe.RecipeActionReplace;
 import net.mcft.copy.tweaks.util.recipe.RecipeIterator;
 import net.mcft.copy.tweaks.util.recipe.RecipeMatcherOutputItem;
+import net.mcft.copy.tweaks.util.recipe.RecipeMutator;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraftforge.common.MinecraftForge;
@@ -45,7 +46,6 @@ public class copyVanillaTweaks {
 	public void postInit(FMLPostInitializationEvent event) {
 		adjustToolAndArmorDurability();
 		iterateRecipes();
-		addRecipes();
 	}
 	
 	
@@ -83,14 +83,15 @@ public class copyVanillaTweaks {
 	private void iterateRecipes() {
 		
 		RecipeIterator iterator = new RecipeIterator();
+		RecipeMutator mutator = new RecipeMutator(iterator);
 		
-		ToolRecipes.register(iterator);
-		ArmorRecipes.register(iterator);
-		MiscRecipes.register(iterator);
+		ToolRecipes.register(mutator);
+		ArmorRecipes.register(mutator);
+		MiscRecipes.register(mutator);
 		
-		FMPSawRecipes.register(iterator);
-		ThaumcraftRecipes.register(iterator);
-		BotaniaRecipes.register(iterator);
+		FMPSawRecipes.register(mutator);
+		ThaumcraftRecipes.register(mutator);
+		BotaniaRecipes.register(mutator);
 		
 		if (config.<Boolean>get(VanillaTweaksConfig.replaceCobbleWithSmoothstone))
 			iterator.registerAction(new RecipeMatcherOutputItem(
@@ -100,17 +101,7 @@ public class copyVanillaTweaks {
 		
 		iterator.go();
 		
-	}
-	
-	private void addRecipes() {
-		
-		ToolRecipes.add();
-		ArmorRecipes.add();
-		MiscRecipes.add();
-		
-		FMPSawRecipes.add();
-		ThaumcraftRecipes.add();
-		BotaniaRecipes.add();
+		mutator.add();
 		
 	}
 	

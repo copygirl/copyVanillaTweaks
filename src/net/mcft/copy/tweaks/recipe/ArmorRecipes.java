@@ -1,32 +1,73 @@
 package net.mcft.copy.tweaks.recipe;
 
-import net.mcft.copy.core.config.setting.Setting;
 import net.mcft.copy.tweaks.VanillaTweaksConfig;
 import net.mcft.copy.tweaks.copyVanillaTweaks;
+import net.mcft.copy.tweaks.util.ItemUtils;
 import net.mcft.copy.tweaks.util.StationUtils;
-import net.mcft.copy.tweaks.util.recipe.RecipeActionRemove;
-import net.mcft.copy.tweaks.util.recipe.RecipeIterator;
-import net.mcft.copy.tweaks.util.recipe.RecipeMatcherOutputItem;
+import net.mcft.copy.tweaks.util.recipe.RecipeMutator;
 import net.minecraft.init.Items;
 
 public final class ArmorRecipes {
 	
 	private ArmorRecipes() {  }
 	
-	public static void register(RecipeIterator iterator) {
+	public static void register(RecipeMutator mutator) {
 		
-		registerRemove(iterator, VanillaTweaksConfig.replaceGoldArmor,
-		               Items.golden_helmet, Items.golden_chestplate, Items.golden_leggings, Items.golden_boots);
-		registerRemove(iterator, VanillaTweaksConfig.replaceIronArmor,
-		               Items.iron_helmet, Items.iron_chestplate, Items.iron_leggings, Items.iron_boots);
-		registerRemove(iterator, VanillaTweaksConfig.replaceDiamondArmor,
-		               Items.diamond_helmet, Items.diamond_chestplate, Items.diamond_leggings, Items.diamond_boots);
+		// ====== GOLD ARMOR ======
+		if (copyVanillaTweaks.config.<Boolean>get(VanillaTweaksConfig.replaceGoldArmor))
+			registerArmorMutation(mutator, Items.golden_helmet, 2,
+			                               Items.golden_chestplate, 4,
+			                               Items.golden_leggings, 3,
+			                               Items.golden_boots, 2);
+		
+		// ====== IRON ARMOR ======
+		if (copyVanillaTweaks.config.<Boolean>get(VanillaTweaksConfig.replaceIronArmor))
+			registerArmorMutation(mutator, Items.iron_helmet, 4,
+			                               Items.iron_chestplate, 8,
+			                               Items.iron_leggings, 6,
+			                               Items.iron_boots, 4);
+		
+		// ====== DIAMOND ARMOR ======
+		if (copyVanillaTweaks.config.<Boolean>get(VanillaTweaksConfig.replaceDiamondArmor)) {
+			mutator.registerShapedStationMutation(Items.diamond_helmet, 8,
+					" o ",
+					" H ", 'o', "gemEmerald",
+					       'H', Items.leather_helmet);
+			mutator.registerShapedStationMutation(Items.diamond_chestplate, 16,
+					" C ",
+					" o ",
+					"   ", 'o', "gemEmerald",
+					       'C', Items.leather_chestplate);
+			mutator.registerShapedStationMutation(Items.diamond_leggings, 12,
+					" o ",
+					" L ",
+					"   ", 'o', "gemEmerald",
+					'L', Items.leather_leggings);
+			mutator.registerShapedStationMutation(Items.diamond_boots, 8,
+					" B ",
+					"   ", 'B', Items.leather_boots);
+		}
 		
 	}
-	
-	private static void registerRemove(RecipeIterator iterator, Setting<Boolean> setting, Object... items) {
-		if (copyVanillaTweaks.config.<Boolean>get(setting))
-			iterator.registerAction(new RecipeMatcherOutputItem(items), RecipeActionRemove.instance);
+
+	public static void registerArmorMutation(RecipeMutator mutator, Object helmet, int helmetExperience,
+	                                                                Object chestplate, int chestplateExperience,
+	                                                                Object leggings, int leggingsExperience,
+	                                                                Object boots, int bootsExperience) {
+		mutator.registerShapedStationMutation(ItemUtils.getItemFromObject(helmet), helmetExperience,
+				"   ",
+				" H ", 'H', Items.leather_helmet);
+		mutator.registerShapedStationMutation(ItemUtils.getItemFromObject(chestplate), chestplateExperience,
+				" C ",
+				"   ",
+				"   ", 'C', Items.leather_chestplate);
+		mutator.registerShapedStationMutation(ItemUtils.getItemFromObject(leggings), leggingsExperience,
+				"   ",
+				" L ",
+				"   ", 'L', Items.leather_leggings);
+		mutator.registerShapedStationMutation(ItemUtils.getItemFromObject(boots), bootsExperience,
+				" B ",
+				"   ", 'B', Items.leather_boots);
 	}
 	
 	public static void add() {
