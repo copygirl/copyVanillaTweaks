@@ -1,0 +1,53 @@
+config.copyvanillatweaks.category.recipes=合成设定
+config.copyvanillatweaks.category.recipes.tooltip=设定模组将重置/改写哪些物品的合成.
+
+config.copyvanillatweaks.recipes.replaceStoneTools=重置石制工具
+config.copyvanillatweaks.recipes.replaceStoneTools.tooltip=使石制工具的合成需要线, 燧石以及石头(非圆石).
+config.copyvanillatweaks.recipes.replaceGoldTools=重置金制工具
+config.copyvanillatweaks.recipes.replaceGoldTools.tooltip=使金制工具的合成需要消耗经验, 并只能在合成站合成.
+config.copyvanillatweaks.recipes.replaceIronTools=重置铁制工具
+config.copyvanillatweaks.recipes.replaceIronTools.tooltip=使铁制工具的合成需要消耗经验, 并只能在合成站合成.
+config.copyvanillatweaks.recipes.replaceDiamondTools=重置钻石工具
+config.copyvanillatweaks.recipes.replaceDiamondTools.tooltip=使钻石工具的合成需要绿宝石以及消耗经验, 并只能在合成站合成.
+
+config.copyvanillatweaks.recipes.replaceGoldArmor=重置金制装备
+config.copyvanillatweaks.recipes.replaceGoldArmor.tooltip=使金制装备的合成需要皮革装备以及消耗经验, 并只能在合成站合成.
+config.copyvanillatweaks.recipes.replaceIronArmor=重置铁制装备
+config.copyvanillatweaks.recipes.replaceIronArmor.tooltip=使铁制装备的合成需要皮革装备以及消耗经验, 并只能在合成站合成.
+config.copyvanillatweaks.recipes.replaceDiamondArmor=重置钻石装备
+config.copyvanillatweaks.recipes.replaceDiamondArmor.tooltip=使钻石装备的合成需要皮革装备, 绿宝石以及消耗经验, 并只能在合成站合成.
+
+config.copyvanillatweaks.recipes.replaceFlintAndSteel=重置打火石
+config.copyvanillatweaks.recipes.replaceFlintAndSteel.tooltip=使打火石的合成需要消耗经验, 并只能在合成站合成.
+config.copyvanillatweaks.recipes.replaceShears=重置剪刀
+config.copyvanillatweaks.recipes.replaceShears.tooltip=使剪刀的合成需要消耗经验, 并只能在合成站合成.
+config.copyvanillatweaks.recipes.replaceBucket=重置铁桶
+config.copyvanillatweaks.recipes.replaceBucket.tooltip=使铁桶的合成需要消耗经验, 并只能在合成站合成.
+
+config.copyvanillatweaks.recipes.replaceSaws=重置手锯
+config.copyvanillatweaks.recipes.replaceSaws.tooltip=使手锯的合成需要双倍材料. 铁手锯及钻石手锯的合成需要消耗经验, 并只能在合成站合成.
+config.copyvanillatweaks.recipes.replaceThaumcraft=重置神秘时代合成表
+config.copyvanillatweaks.recipes.replaceThaumcraft.tooltip=重置神秘时代法杖, 工具以及装备的合成.
+config.copyvanillatweaks.recipes.replaceBotania=重置植物魔法合成表
+config.copyvanillatweaks.recipes.replaceBotania.tooltip=重置植物魔法工具, 装备的合成.
+
+config.copyvanillatweaks.recipes.replaceBed=重置床
+config.copyvanillatweaks.recipes.replaceBed.tooltip=使床的合成需要消耗经验, 并只能在合成站合成.
+config.copyvanillatweaks.recipes.replaceEnchantingTable=重置附魔台
+config.copyvanillatweaks.recipes.replaceEnchantingTable.tooltip=使附魔台的合成需要消耗经验, 并只能在合成站合成.
+config.copyvanillatweaks.recipes.replaceAnvil=重置铁砧
+config.copyvanillatweaks.recipes.replaceAnvil.tooltip=使铁砧的合成需要消耗经验, 并只能在合成站合成.
+
+config.copyvanillatweaks.recipes.replaceCobbleWithSmoothstone=重置合成中的圆石
+config.copyvanillatweaks.recipes.replaceCobbleWithSmoothstone.tooltip=替换合成拉杆, 发射器, 投掷器, 活塞, 炼药台所需的圆石为石头.
+
+
+config.copyvanillatweaks.category.tweaks=功能设定
+config.copyvanillatweaks.category.tweaks.tooltip=设定模组将启用哪些增强功能.
+
+config.copyvanillatweaks.tweaks.enableGravelFlintDropTweak=燧石掉落设定
+config.copyvanillatweaks.tweaks.enableGravelFlintDropTweak.tooltip=使砂砾掉落燧石的几率根据铲子的等级而定. 等级越低 = 掉落几率越大. 不用铲子破坏砂砾将不会掉落燧石.
+config.copyvanillatweaks.tweaks.enableMobDropTweak=生物掉落物设定
+config.copyvanillatweaks.tweaks.enableMobDropTweak.tooltip=增加生物掉落物品. 杀死女巫将掉落药水. 成年的鸡将有几率掉落羽毛.
+config.copyvanillatweaks.tweaks.enableBreedingAndGrowthTweak=动物饲养 / 繁殖设定
+config.copyvanillatweaks.tweaks.enableBreedingAndGrowthTweak.tooltip=使动物成长速度变慢, 增加繁殖冷却时间以及喂养动物所获得的经验. 并使繁殖猪能获得更多的小猪仔.
