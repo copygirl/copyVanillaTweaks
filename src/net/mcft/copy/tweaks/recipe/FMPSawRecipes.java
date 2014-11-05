@@ -28,7 +28,7 @@ public final class FMPSawRecipes {
 				"   ",
 				" oo", 'o', "ingotIron");
 		
-		mutator.registerShapedStationMutation("ForgeMicroblock:sawDiamond", 2,
+		mutator.registerShapedStationMutation("ForgeMicroblock:sawDiamond", 4,
 				"   ",
 				" oo", 'o', "gemDiamond");
 		
