@@ -66,6 +66,10 @@ public class VanillaTweaksConfig extends Config {
 	@ConfigSetting(requiresMinecraftRestart = true)
 	public static Setting replaceCobbleWithSmoothstone = new BooleanSetting("recipes.replaceCobbleWithSmoothstone", true)
 			.setComment("Replaces cobblestone with smoothstone in recipes for: Lever, Dispenser, Dropper, Piston, Brewing Stand.");
+	
+	@ConfigSetting(requiresMinecraftRestart = true)
+	public static Setting addNameTag = new BooleanSetting("recipes.addNameTag", true)
+			.setComment("Adds a crafting station recipe for name tags requiring string, paper, lapis lazuli and 10 levels.");
 
 	@ConfigSetting(requiresMinecraftRestart = true)
 	public static Setting enableGravelFlintDropTweak = new BooleanSetting("tweaks.enableGravelFlintDropTweak", true)

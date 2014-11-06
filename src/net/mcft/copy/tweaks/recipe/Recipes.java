@@ -1,8 +1,6 @@
 package net.mcft.copy.tweaks.recipe;
 
-import net.mcft.copy.tweaks.util.ItemUtils;
 import net.mcft.copy.tweaks.util.recipe.RecipeMutator;
-import net.minecraft.item.Item;
 
 public final class Recipes {
 	

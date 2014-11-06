@@ -41,6 +41,9 @@ config.copyvanillatweaks.recipes.replaceAnvil.tooltip=Replaces anvil recipe with
 config.copyvanillatweaks.recipes.replaceCobbleWithSmoothstone=Replace Cobble with Smoothstone
 config.copyvanillatweaks.recipes.replaceCobbleWithSmoothstone.tooltip=Replaces cobblestone with smoothstone in recipes for: Lever, Dispenser, Dropper, Piston, Brewing Stand.
 
+config.copyvanillatweaks.recipes.addNameTag=Add Name Tag Recipe
+config.copyvanillatweaks.recipes.addNameTag.tooltip=Adds a crafting station recipe for name tags requiring paper, string, lapis lazuli and 10 levels.
+
 
 config.copyvanillatweaks.category.tweaks=Tweak Settings
 config.copyvanillatweaks.category.tweaks.tooltip=Controls whether certain tweaks are enabled.

@@ -11,6 +11,7 @@ import net.mcft.copy.tweaks.recipe.ArmorRecipes;
 import net.mcft.copy.tweaks.recipe.BotaniaRecipes;
 import net.mcft.copy.tweaks.recipe.FMPSawRecipes;
 import net.mcft.copy.tweaks.recipe.MiscRecipes;
+import net.mcft.copy.tweaks.recipe.NewRecipes;
 import net.mcft.copy.tweaks.recipe.ThaumcraftRecipes;
 import net.mcft.copy.tweaks.recipe.ToolRecipes;
 import net.mcft.copy.tweaks.util.ItemUtils;
@@ -46,6 +47,7 @@ public class copyVanillaTweaks {
 	public void postInit(FMLPostInitializationEvent event) {
 		adjustToolAndArmorDurability();
 		iterateRecipes();
+		NewRecipes.add();
 	}
 	
 	
