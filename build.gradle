@@ -17,15 +17,27 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.4.0.5"
+version = "$mc_version-$mod_version"
 group = "net.mcft.copy.tweaks"
-archivesBaseName = project.projectDir.name + "-1.7.10"
+archivesBaseName = "copyVanillaTweaks"
 
 minecraft {
-    version = "1.7.10-10.13.0.1180"
-    
-    replaceIn project.projectDir.name + ".java"
+    version = "$mc_version-$forge_version"
+
+    replaceIn "copyVanillaTweaks.java"
     replace "@VERSION@", project.version
+}
+
+repositories {
+    maven {
+        name "RX14"
+        url "http://mvn.rx14.co.uk/repo/"
+    }
+}
+
+dependencies {
+    compile name: "copycore", group: "net.mcft.copy.copycore", version: "$mc_version-$copycore_version", classifier: "deobf"
+    compile name: "BetterStorage", group: "net.mcft.copy.betterstorage", version: "$mc_version-$betterstorage_version", classifier: "deobf"
 }
 
 sourceSets.main {
@@ -36,7 +48,7 @@ sourceSets.main {
 processResources {
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version
-    
+
     from (sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
         expand 'version':project.version, 'mcversion':project.minecraft.version
@@ -44,4 +56,19 @@ processResources {
     from (sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'deobf'
+}
+
+artifacts {
+    archives sourcesJar
+    archives deobfJar
 }
