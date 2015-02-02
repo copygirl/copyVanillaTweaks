@@ -7,19 +7,7 @@ import net.mcft.copy.core.config.setting.Setting;
 import net.mcft.copy.tweaks.handlers.AnimalBreedingGrowthHandler;
 import net.mcft.copy.tweaks.handlers.GravelFlintDropHandler;
 import net.mcft.copy.tweaks.handlers.MobDropHandler;
-import net.mcft.copy.tweaks.recipe.ArmorRecipes;
-import net.mcft.copy.tweaks.recipe.BotaniaRecipes;
-import net.mcft.copy.tweaks.recipe.FMPSawRecipes;
-import net.mcft.copy.tweaks.recipe.MiscRecipes;
-import net.mcft.copy.tweaks.recipe.NewRecipes;
-import net.mcft.copy.tweaks.recipe.ThaumcraftRecipes;
-import net.mcft.copy.tweaks.recipe.ToolRecipes;
 import net.mcft.copy.tweaks.util.ItemUtils;
-import net.mcft.copy.tweaks.util.recipe.RecipeActionReplace;
-import net.mcft.copy.tweaks.util.recipe.RecipeIterator;
-import net.mcft.copy.tweaks.util.recipe.RecipeMatcherOutputItem;
-import net.mcft.copy.tweaks.util.recipe.RecipeMutator;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
@@ -28,7 +16,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid = copyVanillaTweaks.MOD_ID, version = "@VERSION@", useMetadata = false,
-     dependencies = "required-after:copycore;required-after:betterstorage",
+     dependencies = "required-after:copycore",
      guiFactory = "net.mcft.copy.tweaks.client.gui.VanillaTweaksGuiFactory")
 public class copyVanillaTweaks {
 	
@@ -45,9 +33,8 @@ public class copyVanillaTweaks {
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		adjustToolAndArmorDurability();
-		iterateRecipes();
-		NewRecipes.add();
+		if (config.<Boolean>get(VanillaTweaksConfig.adjustToolAndArmorDurability))
+			adjustToolAndArmorDurability();
 	}
 	
 	
@@ -79,31 +66,6 @@ public class copyVanillaTweaks {
 		ItemUtils.setArmorDurability(16, Items.iron_helmet,      Items.iron_chestplate,      Items.iron_leggings,      Items.iron_boots);
 		ItemUtils.setArmorDurability(20, Items.chainmail_helmet, Items.chainmail_chestplate, Items.chainmail_leggings, Items.chainmail_boots);
 		ItemUtils.setArmorDurability(32, Items.diamond_helmet,   Items.diamond_chestplate,   Items.diamond_leggings,   Items.diamond_boots);
-		
-	}
-	
-	private void iterateRecipes() {
-		
-		RecipeIterator iterator = new RecipeIterator();
-		RecipeMutator mutator = new RecipeMutator(iterator);
-		
-		ToolRecipes.register(mutator);
-		ArmorRecipes.register(mutator);
-		MiscRecipes.register(mutator);
-		
-		FMPSawRecipes.register(mutator);
-		ThaumcraftRecipes.register(mutator);
-		BotaniaRecipes.register(mutator);
-		
-		if (config.<Boolean>get(VanillaTweaksConfig.replaceCobbleWithSmoothstone))
-			iterator.registerAction(new RecipeMatcherOutputItem(
-						Blocks.lever, Blocks.dispenser, Blocks.dropper,
-						Blocks.piston, Items.brewing_stand
-					), new RecipeActionReplace("cobblestone", "stone"));
-		
-		iterator.go();
-		
-		mutator.add();
 		
 	}
 	
